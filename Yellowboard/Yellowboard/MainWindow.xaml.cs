@@ -20,9 +20,51 @@ namespace Yellowboard
     /// </summary>
     public partial class MainWindow : Window
     {
+        bool isDown = true;
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void DragWindow(object sender, MouseButtonEventArgs e)
+        {
+            
+        }
+
+        private void GoUpDown(object sender, RoutedEventArgs e)
+        {
+            if(isDown)
+            {
+                this.Top = -90;
+                ((Button)sender).Content = "Down";
+            }
+            else
+            {
+                this.Top = 0;
+                ((Button)sender).Content = "Up";
+            }
+            isDown = !isDown;
+        }
+
+        private void GoingOnTop(object sender, EventArgs e)
+        {
+            this.Topmost = true;
+        }
+
+        private void Close(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void Hide(object sender, RoutedEventArgs e)
+        {
+            GoUpDown(sender,e);
+        }
+
+        private void GetToken(object sender, RoutedEventArgs e)
+        {
+            Window w = new GetTokenStart();
+            w.Show();            
         }
     }
 }

@@ -5,12 +5,57 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Yellowboard"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0*"/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
+        Title="MainWindow" WindowStyle="None"
+        AllowsTransparency="True"
+        WindowStartupLocation="Manual"
+        Top="0"
+        Left="0"
+        Height="110"
+        Width="{x:Static SystemParameters.PrimaryScreenWidth}"
+        MouseDown="DragWindow"
+        Background="Transparent"
+        FontFamily="Segoe UI Light"
+        Deactivated="GoingOnTop"
+        >
+    <Grid  Background="Transparent" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="90"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <!-- the window itself-->
+        <Border  BorderThickness="4" Grid.Row="0" BorderBrush="#57647C" Background="#F7EED4">
+            <Grid ShowGridLines="True">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="40"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Orientation="Horizontal" Margin="10">
+                    <Button Width="100" Click="GetToken">
+                        Connect
+                    </Button>
+                    <local:MessageTile Width="200">
+                        
+                    </local:MessageTile>
+                </StackPanel>
+                <StackPanel Grid.Column="1" Orientation="Vertical">
+                    <Button Click="Close" Margin="2">
+                        X
+                    </Button>
+                    <Button Click="Hide" Margin="2">
+                        _
+                    </Button>
+                </StackPanel>
+                
+            </Grid>
+        </Border>
+
+
+        <!-- button to hide-->
+        <Button Grid.Row="1" Width="50" Click="GoUpDown">
+            <TextBlock>
+                up
+            </TextBlock>
+        </Button>
 
     </Grid>
 </Window>

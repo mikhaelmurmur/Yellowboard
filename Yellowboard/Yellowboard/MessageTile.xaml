@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="Yellowboard.MessageTile"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Yellowboard"
+             mc:Ignorable="d" 
+             d:DesignHeight="80" d:DesignWidth="200">
+    <Border x:Name="bMain" Background="#DFCEBD" BorderBrush="#57647C" BorderThickness="1" 
+            MouseEnter="MouseEnterElement" MouseLeave="MouseLeaveElement"
+            >
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="6*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="3*"/>
+            </Grid.RowDefinitions>
+            
+            <Image x:Name="iAvatar" Grid.Row="1" Margin="2">
+                
+            </Image>
+
+            <TextBlock x:Name="tbFriendName" Grid.Column="1" Margin="2" FontSize="11" FontWeight="Bold">
+                Andrii Turchin
+            </TextBlock>
+
+            <TextBlock x:Name="tbMessage" Grid.Column="1" Grid.Row="1" Margin="2" TextWrapping="Wrap" FontSize="10">
+                Lorem ipsum dolor sit amet.
+            </TextBlock>
+            
+        </Grid>
+    </Border>
+</UserControl>
